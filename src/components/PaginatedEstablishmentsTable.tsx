@@ -59,20 +59,20 @@ export const PaginatedEstablishmentsTable = () => {
     const favouritedId = favoritedEstablishments?.favouriteItem?.map(
       (element) => element.FHRSID
     );
-    handleEstablisments(favouritedId)
+    handleEstablisments(favouritedId);
   }, [favoritedEstablishments]);
 
   const handleEstablisments = (favouritedId: string[] | undefined) => {
-    const newEstablisments:{ [key: string]: string }[] = [...establishments];
-    for(const establishment of newEstablisments) {
+    const newEstablisments: { [key: string]: string }[] = [...establishments];
+    for (const establishment of newEstablisments) {
       if (favouritedId?.includes(establishment.FHRSID)) {
         establishment.favourite = "1";
       } else {
-        establishment.favourite = "0"; 
+        establishment.favourite = "0";
       }
-    };
+    }
     setEstablishments(newEstablisments);
-  }
+  };
   const handleAuthoritiesOptions = (
     authoritiesList: { [key: string]: string }[]
   ) => {
@@ -107,9 +107,9 @@ export const PaginatedEstablishmentsTable = () => {
   const handleChangeFilterAuthorities = (value: string) => {
     setLoading(true);
     setCurrentFilter(value);
-    value === "all" ? 
-    callApiEstablishmentsRatings(pageNum) :
-    callApiFilterEstablishments(value, pageNum);
+    value === "all"
+      ? callApiEstablishmentsRatings(pageNum)
+      : callApiFilterEstablishments(value, pageNum);
   };
 
   const callApiEstablishmentsRatings = async (pageNum: number) => {

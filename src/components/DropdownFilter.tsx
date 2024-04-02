@@ -20,7 +20,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, defaultValue, onChange }) 
   };
 
   return (
-    <select value={selectedValue} onChange={handleChange} className={styles.minimal}>
+    <select role="listbox" value={selectedValue} onChange={handleChange} className={styles.minimal}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

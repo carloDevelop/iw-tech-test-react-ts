@@ -21,8 +21,8 @@ export const EstablishmentsTableRow: React.FC<{
       : favoritedEstablishments?.removeItem(item?.FHRSID || "");
   };
 
-  const removeFromFavorite = (value: string | undefined) => {
-    favoritedEstablishments?.removeItem(value || "");
+  const removeFromFavorite = (id: string | undefined) => {
+    favoritedEstablishments?.removeItem(id || "");
   };
 
   return (
@@ -34,11 +34,13 @@ export const EstablishmentsTableRow: React.FC<{
       </td>
       <td className={styles.tableRow}>{establishment?.RatingValue}</td>
       {typeOfTable === TypeOfTable.Favourite ? (
-        <GenericButton
-          classes={[styles.buttonFavouriteTable]}
-          text="Remove"
-          onClick={() => removeFromFavorite(establishment?.FHRSID)}
-        />
+        <td>
+          <GenericButton
+            classes={[styles.buttonFavouriteTable]}
+            text="Remove"
+            onClick={() => removeFromFavorite(establishment?.FHRSID)}
+          />
+        </td>
       ) : (
         <td>
           <FavouriteCheckbox

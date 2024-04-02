@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EstablishmentDetailPage renders EstablishmentDetailPage with details 1`] = `
+<div
+  class="details"
+  data-testid="detailPage"
+>
+  <h1>
+     
+    Test Establisment
+     
+  </h1>
+  <p
+    data-testid="fullAddress"
+  >
+    <b>
+      Address:
+    </b>
+     Camden Street 192-198 Camden, 123456 London
+  </p>
+  <p
+    data-testid="dateOfInspection"
+  >
+    <b>
+      Date of inspection:
+    </b>
+     
+    10/12/2023
+  </p>
+  <div>
+    <p
+      data-testid="rating"
+    >
+      <b>
+        Rating:
+      </b>
+       
+      2
+    </p>
+  </div>
+  <ul>
+    <li>
+      <p>
+         
+        Hygiene
+        :  
+        15
+      </p>
+    </li>
+    <li>
+      <p>
+         
+        Structural
+        :  
+        10
+      </p>
+    </li>
+    <li>
+      <p>
+         
+        ConfidenceInManagement
+        :  
+        10
+      </p>
+    </li>
+  </ul>
+  <button
+    class="button"
+  >
+    Go Back
+  </button>
+</div>
+`;

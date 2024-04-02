@@ -2,12 +2,7 @@ import React from "react";
 import { EstablishmentsTableRow } from "./EstablishmentsTableRow";
 import PropTypes from "prop-types";
 import { TypeOfTable } from "../constants";
-
-const headerStyle: { [key: string]: string | number } = {
-  paddingBottom: "10px",
-  textAlign: "left",
-  fontSize: "20px",
-};
+import styles from '../styles/EstablishmentsTable.module.css';
 
 export const EstablishmentsTable: React.FC<{
   establishments: { [key: string]: string }[] | null | undefined;
@@ -17,9 +12,9 @@ export const EstablishmentsTable: React.FC<{
     <table>
       <tbody>
         <tr>
-          <th style={headerStyle}>Business Name</th>
-          <th style={headerStyle}>Rating Value</th>
-          <th style={headerStyle}>Favourite</th> 
+          <th className={styles.headerStyle}>Business Name</th>
+          <th className={styles.headerStyle}>Rating Value</th>
+          <th className={styles.headerStyle}>Favourite</th> 
         </tr>
         {establishments &&
           establishments?.map(

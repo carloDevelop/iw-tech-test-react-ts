@@ -7,7 +7,7 @@ interface LoadingProps {
 
 const Loading: React.FC<LoadingProps> = ({ message }) => {
   return (
-    <div className={styles.loading}>
+    <div role="status" className={styles.loading}>
       <div className={styles.spinner}></div>
       {message && <p>{message}</p>}
     </div>

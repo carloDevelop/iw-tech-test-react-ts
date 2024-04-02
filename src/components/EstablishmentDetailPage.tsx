@@ -7,7 +7,6 @@ import {
 } from "../api/ratingsAPI";
 import LoadingSpinner from "./LoadingSpinner";
 import GenericButton from "./GenericButton";
-import { log } from "console";
 
 export const EstablishmentDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,8 +22,6 @@ export const EstablishmentDetailPage = () => {
     getEstablishmentDetails(id)
       .then(
         (result) => {
-          console.log("result useeffect", result);
-
           setDetails(result);
         },
         (error) => {
@@ -34,7 +31,6 @@ export const EstablishmentDetailPage = () => {
       .finally(() => {
         setLoading(false);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const navigateBack = () => {
@@ -45,10 +41,7 @@ export const EstablishmentDetailPage = () => {
   };
 
   const displayRating = (values: {} | undefined) => {
-    console.log("values", values);
-
     const entries = values ? Object.entries(values) : [];
-    console.log("entries", entries);
     return (
       <ul>
         {entries.map((entry) => (
@@ -65,20 +58,16 @@ export const EstablishmentDetailPage = () => {
       {loading ? (
         <LoadingSpinner message="Loading..." />
       ) : (
-        <div className={styles.details}>
+        <div data-testid="detailPage" className={styles.details}>
           <h1> {details?.BusinessName} </h1>
-          <p>
-            <b>Address:</b>{" "}
-            {`${details?.AddressLine1} ${details?.AddressLine2} 
-          ${details?.AddressLine3},
-          ${details?.PostCode}  
-          ${details?.AddressLine4}`}{" "}
+          <p data-testid="fullAddress">
+            <b>Address:</b>{` ${details?.AddressLine1} ${details?.AddressLine2}${details?.AddressLine3.toString() === "" ? "," : " "+details?.AddressLine3+","} ${details?.PostCode} ${details?.AddressLine4}`}
           </p>
-          <p>
+          <p data-testid="dateOfInspection">
             <b>Date of inspection:</b> {formatedDate(details?.RatingDate)}
           </p>
           <div>
-          <p><b>Rating:</b>{" "}{details?.RatingValue}</p>
+          <p data-testid="rating"><b>Rating:</b>{" "}{details?.RatingValue}</p>
           </div>
           {displayRating(details?.scores)}
 

@@ -31,7 +31,7 @@ const HomePage = () => {
 
   return (
     <FavouriteItemsContext.Provider value={{favouriteItem, saveFavouriteItem, removeItem}}>
-      <header style={logoStyle} />
+      <header role="img" style={logoStyle} />
       <PaginatedEstablishmentsTable />
       <FavouritedEstablishmentsTable />
     </FavouriteItemsContext.Provider>
